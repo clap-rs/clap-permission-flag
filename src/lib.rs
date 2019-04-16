@@ -11,6 +11,7 @@ extern crate structopt;
 use failure::Error;
 
 use std::ffi::OsString;
+use std::path::PathBuf;
 
 /// Drop permissions of a CLI using structopt.
 #[derive(StructOpt, Debug)]
@@ -21,6 +22,9 @@ pub struct Permission {
   /// Change the process group
   #[structopt(short = "g", long = "group", parse(from_os_str))]
   group: Option<OsString>,
+  /// Change the process root directory
+  #[structopt(long = "chroot", parse(from_os_str))]
+  chroot: Option<PathBuf>,
 }
 
 impl Permission {
@@ -36,6 +40,10 @@ impl Permission {
       drop = drop.group(&group);
     }
 
+    if let Some(chroot) = self.chroot {
+      drop = drop.chroot(&chroot);
+    }
+
     drop.apply()?;
     Ok(())
   }
@@ -48,5 +56,10 @@ impl Permission {
   /// Get the group.
   pub fn group(&self) -> &Option<OsString> {
     &self.group
+  }
+
+  /// Get the chroot directory.
+  pub fn chroot(&self) -> &Option<PathBuf> {
+    &self.chroot
   }
 }
