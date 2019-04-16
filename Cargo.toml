@@ -1,6 +1,6 @@
 [package]
 name = "clap-permission-flag"
-version = "0.1.0"
+version = "0.2.0"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/rust-clique/clap-permission-flag"
 documentation = "https://docs.rs/clap-permission-flag"
@@ -9,7 +9,7 @@ authors = ["Yoshua Wuyts <yoshuawuyts@gmail.com>"]
 readme = "README.md"
 
 [dependencies]
-privdrop = "0.2.0"
+privdrop = "0.3.1"
 failure = "0.1.2"
 structopt = "0.2.10"
 

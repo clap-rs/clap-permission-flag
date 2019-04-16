@@ -27,11 +27,11 @@ impl Permission {
     let mut drop = privdrop::PrivDrop::default();
 
     if let Some(user) = self.user {
-      drop = drop.user(&user)?;
+      drop = drop.user(&user);
     }
 
     if let Some(group) = self.group {
-      drop = drop.group(&group)?;
+      drop = drop.group(&group);
     }
 
     drop.apply()?;
