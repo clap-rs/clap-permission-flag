@@ -28,6 +28,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
+This crate depends on Unix features - on other platforms a stub implementation
+which has no flags and always succeeds is used.
+
 ### Example Output
 ```txt
 clap-permission-flag 0.2.0
