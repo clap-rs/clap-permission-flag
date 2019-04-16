@@ -10,15 +10,17 @@ extern crate structopt;
 
 use failure::Error;
 
+use std::ffi::OsString;
+
 /// Drop permissions of a CLI using structopt.
 #[derive(StructOpt, Debug)]
 pub struct Permission {
   /// Change the process user
-  #[structopt(short = "u", long = "user")]
-  user: Option<String>,
+  #[structopt(short = "u", long = "user", parse(from_os_str))]
+  user: Option<OsString>,
   /// Change the process group
-  #[structopt(short = "g", long = "group")]
-  group: Option<String>,
+  #[structopt(short = "g", long = "group", parse(from_os_str))]
+  group: Option<OsString>,
 }
 
 impl Permission {
@@ -39,12 +41,12 @@ impl Permission {
   }
 
   /// Get the user.
-  pub fn user(&self) -> &Option<String> {
+  pub fn user(&self) -> &Option<OsString> {
     &self.user
   }
 
   /// Get the group.
-  pub fn group(&self) -> &Option<String> {
+  pub fn group(&self) -> &Option<OsString> {
     &self.group
   }
 }
