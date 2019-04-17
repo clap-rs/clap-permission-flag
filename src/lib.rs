@@ -82,8 +82,7 @@ mod stub {
 
   /// Drop permissions of a CLI using structopt.
   #[derive(StructOpt, Debug)]
-  pub struct Permission {
-  }
+  pub struct Permission {}
 
   impl Permission {
     /// Drop privileges.
