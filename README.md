@@ -28,9 +28,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
+This crate depends on Unix features - on other platforms a stub implementation
+which has no flags and always succeeds if used.
+
 ### Example Output
 ```txt
-clap-permission-flag 0.1.0
+clap-permission-flag 0.2.0
 Yoshua Wuyts <yoshuawuyts@gmail.com>
 Drop permissions of a CLI using structopt
 
@@ -42,13 +45,23 @@ FLAGS:
     -V, --version    Prints version information
 
 OPTIONS:
-    -g, --group <group>    Change the process group
-    -u, --user <user>      Change the process user
+        --chroot <chroot>    Change the process root directory
+    -g, --group <group>      Change the process group
+    -u, --user <user>        Change the process user
 ```
 
 ## Installation
 ```sh
 $ cargo add clap-permission-flag
+```
+
+Since `--chroot` may not be suitable for all applications, it is behind the
+`chroot` feature and must be enabled explicitly:
+
+```toml
+[dependencies.clap-permission-flag]
+version = "0.2"
+features = ["chroot"]
 ```
 
 ## See Also
