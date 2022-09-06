@@ -4,15 +4,21 @@
 
 use clap::Parser;
 
-extern crate failure;
 #[cfg(unix)]
 extern crate privdrop;
-
-use failure::Error;
 
 use std::ffi::OsString;
 #[cfg(feature = "chroot")]
 use std::path::PathBuf;
+
+/// Error type for this crate
+#[derive(Debug, thiserror::Error)]
+pub enum Error {
+    /// Error variant if privileges could not be dropped
+    #[cfg(unix)]
+    #[error("Privileges could not be dropped")]
+    PrivDrop(#[from] privdrop::PrivDropError),
+}
 
 #[cfg(unix)]
 mod supported {

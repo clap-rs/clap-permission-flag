@@ -10,7 +10,7 @@ readme = "README.md"
 edition = "2021"
 
 [dependencies]
-failure = "0.1.2"
+thiserror = "1"
 clap = { version = "3", features = ["derive"] }
 
 [target."cfg(unix)".dependencies]
