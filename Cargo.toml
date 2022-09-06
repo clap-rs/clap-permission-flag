@@ -7,6 +7,7 @@ documentation = "https://docs.rs/clap-permission-flag"
 description = "Drop permissions of a CLI using structopt"
 authors = ["Yoshua Wuyts <yoshuawuyts@gmail.com>"]
 readme = "README.md"
+edition = "2021"
 
 [dependencies]
 failure = "0.1.2"
