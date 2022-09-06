@@ -2,11 +2,11 @@
 #![doc = include_str!("../README.md")]
 #![cfg_attr(test, deny(warnings))]
 
+use clap::Parser;
+
 extern crate failure;
 #[cfg(unix)]
 extern crate privdrop;
-#[macro_use]
-extern crate structopt;
 
 use failure::Error;
 
@@ -18,18 +18,18 @@ use std::path::PathBuf;
 mod supported {
   use super::*;
 
-  /// Drop permissions of a CLI using structopt.
-  #[derive(StructOpt, Debug)]
+  /// Drop permissions of a CLI using clap.
+  #[derive(Parser, Debug)]
   pub struct Permission {
     /// Change the process user
-    #[structopt(short = "u", long = "user", parse(from_os_str))]
+    #[clap(short = 'u', long = "user", parse(from_os_str))]
     user: Option<OsString>,
     /// Change the process group
-    #[structopt(short = "g", long = "group", parse(from_os_str))]
+    #[clap(short = 'g', long = "group", parse(from_os_str))]
     group: Option<OsString>,
     /// Change the process root directory
     #[cfg(feature = "chroot")]
-    #[structopt(long = "chroot", parse(from_os_str))]
+    #[clap(long = "chroot", parse(from_os_str))]
     chroot: Option<PathBuf>,
   }
 
@@ -79,8 +79,8 @@ mod supported {
 mod stub {
   use super::*;
 
-  /// Drop permissions of a CLI using structopt.
-  #[derive(StructOpt, Debug)]
+  /// Drop permissions of a CLI using clap.
+  #[derive(Parser, Debug)]
   pub struct Permission {}
 
   impl Permission {
