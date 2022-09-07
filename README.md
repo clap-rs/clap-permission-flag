@@ -1,4 +1,5 @@
 # clap-permission-flag
+
 [![crates.io version][1]][2] [![build status][3]][4]
 [![downloads][5]][6] [![docs.rs docs][7]][8]
 
@@ -14,14 +15,14 @@ use clap::Parser;
 
 #[derive(Debug, Parser)]
 struct Cli {
-  #[clap(flatten)]
-  permission: clap_permission_flag::Permission,
+    #[clap(flatten)]
+    permission: clap_permission_flag::Permission,
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-  let args = Cli::parse();
-  args.permission.drop()?;
-  Ok(())
+    let args = Cli::parse();
+    args.permission.drop()?;
+    Ok(())
 }
 ```
 
