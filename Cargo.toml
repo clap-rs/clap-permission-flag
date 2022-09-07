@@ -14,7 +14,7 @@ thiserror = "1"
 clap = { version = "3", features = ["derive"] }
 
 [target."cfg(unix)".dependencies]
-privdrop = "0.3.1"
+privdrop = "0.5.2"
 
 [dev-dependencies]
 
