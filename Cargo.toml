@@ -10,7 +10,7 @@ readme = "README.md"
 
 [dependencies]
 failure = "0.1.2"
-structopt = "0.2.10"
+structopt = "0.3.26"
 
 [target."cfg(unix)".dependencies]
 privdrop = "0.3.1"
