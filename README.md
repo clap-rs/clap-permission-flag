@@ -8,21 +8,18 @@ Drop permissions of a CLI using structopt.
 - [Crates.io][2]
 
 ## Usage
-```rust
-extern crate clap_permission_flag;
-#[macro_use]
-extern crate structopt;
 
-use structopt::StructOpt;
+```rust,no_run
+use clap::Parser;
 
-#[derive(Debug, StructOpt)]
+#[derive(Debug, Parser)]
 struct Cli {
-  #[structopt(flatten)]
+  #[clap(flatten)]
   permission: clap_permission_flag::Permission,
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-  let args = Cli::from_args();
+  let args = Cli::parse();
   args.permission.drop()?;
   Ok(())
 }
@@ -32,6 +29,7 @@ This crate depends on Unix features - on other platforms a stub implementation
 which has no flags and always succeeds if used.
 
 ### Example Output
+
 ```txt
 clap-permission-flag 0.2.0
 Yoshua Wuyts <yoshuawuyts@gmail.com>
@@ -51,6 +49,7 @@ OPTIONS:
 ```
 
 ## Installation
+
 ```sh
 $ cargo add clap-permission-flag
 ```
@@ -65,9 +64,11 @@ features = ["chroot"]
 ```
 
 ## See Also
+
 - https://github.com/jedisct1/rust-privdrop
 
 ## License
+
 [MIT](./LICENSE-MIT) OR [Apache-2.0](./LICENSE-APACHE)
 
 [1]: https://img.shields.io/crates/v/clap-permission-flag.svg?style=flat-square

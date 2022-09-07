@@ -4,13 +4,14 @@ version = "0.2.0"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/rust-clique/clap-permission-flag"
 documentation = "https://docs.rs/clap-permission-flag"
-description = "Drop permissions of a CLI using structopt"
+description = "Drop permissions of a CLI using clap"
 authors = ["Yoshua Wuyts <yoshuawuyts@gmail.com>"]
 readme = "README.md"
+edition = "2021"
 
 [dependencies]
-failure = "0.1.2"
-structopt = "0.2.10"
+thiserror = "1"
+clap = { version = "3", features = ["derive"] }
 
 [target."cfg(unix)".dependencies]
 privdrop = "0.3.1"

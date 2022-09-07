@@ -1,17 +1,13 @@
-extern crate clap_permission_flag;
-#[macro_use]
-extern crate structopt;
+use clap::Parser;
 
-use structopt::StructOpt;
-
-#[derive(Debug, StructOpt)]
+#[derive(Debug, Parser)]
 struct Cli {
-  #[structopt(flatten)]
-  permission: clap_permission_flag::Permission,
+    #[clap(flatten)]
+    permission: clap_permission_flag::Permission,
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-  let args = Cli::from_args();
-  args.permission.drop()?;
-  Ok(())
+    let args = Cli::parse();
+    args.permission.drop()?;
+    Ok(())
 }
