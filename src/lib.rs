@@ -28,14 +28,14 @@ mod supported {
     #[derive(Parser, Debug)]
     pub struct Permission {
         /// Change the process user
-        #[clap(short = 'u', long = "user", parse(from_os_str))]
+        #[clap(short = 'u', long = "user", value_parser)]
         user: Option<OsString>,
         /// Change the process group
-        #[clap(short = 'g', long = "group", parse(from_os_str))]
+        #[clap(short = 'g', long = "group", value_parser)]
         group: Option<OsString>,
         /// Change the process root directory
         #[cfg(feature = "chroot")]
-        #[clap(long = "chroot", parse(from_os_str))]
+        #[clap(long = "chroot", value_parser)]
         chroot: Option<PathBuf>,
     }
 
