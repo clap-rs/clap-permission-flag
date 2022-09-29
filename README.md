@@ -32,7 +32,7 @@ which has no flags and always succeeds if used.
 ### Example Output
 
 ```txt
-clap-permission-flag 0.2.0
+clap-permission-flag 0.3.0
 Yoshua Wuyts <yoshuawuyts@gmail.com>
 Drop permissions of a CLI using structopt
 
@@ -60,7 +60,7 @@ Since `--chroot` may not be suitable for all applications, it is behind the
 
 ```toml
 [dependencies.clap-permission-flag]
-version = "0.2"
+version = "0.3"
 features = ["chroot"]
 ```
 
