@@ -1,3 +1,13 @@
+## 2022-09-29, Version 0.3.0
+
+- The crate was rewritten to use clap instead of structopt
+- Dependencies were updated
+    - privdrop 0.5.2
+    - clap 4
+
+Other than that was only quality-of-life changes for the development of the
+crate, nothing user-facing.
+
 ## 2019-04-20, Version 0.2.0
 ### Commits
 - [[`f5ebd41276`](https://github.com/rust-clique/clap-permission-flag/commit/f5ebd41276652eac9ba19898ce69755dfa2b9008)] (cargo-release) version 0.2.0 (Yoshua Wuyts)
