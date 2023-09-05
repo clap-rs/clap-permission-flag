@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         rust:
-          - 1.60.0
+          - 1.64.0
           - stable
           - beta
 
@@ -60,7 +60,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions-rs/toolchain@v1
         with:
-          toolchain: 1.60.0
+          toolchain: 1.64.0
       - run: rustup component add rustfmt
       - name: cargo-fmt
         uses: actions-rs/cargo@v1
@@ -75,7 +75,7 @@ jobs:
     strategy:
       matrix:
         rust:
-          - 1.60.0
+          - 1.64.0
           - stable
           - beta
     steps:
@@ -101,7 +101,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions-rs/toolchain@v1
         with:
-          toolchain: 1.60.0
+          toolchain: 1.64.0
           override: true
       - uses: swatinem/rust-cache@v2
       - run: rustup component add clippy
